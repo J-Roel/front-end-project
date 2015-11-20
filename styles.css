@@ -1,0 +1,30 @@
+/*
+	STYLES.CSS
+*/
+
+/*Fonts*/
+
+
+
+body {
+}
+
+button {
+	display: inline-block;
+	box-shadow: 1px 1px 4px 2px #444;
+	border-radius: 10px;
+	
+	padding:0.75em;
+}
+
+
+
+.effect{
+	width:200px;
+	height:200px;
+	border-radius: 5px;
+	background-color: gray;
+}
+
+
+/*End of file*/
