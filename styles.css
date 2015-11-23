@@ -4,15 +4,8 @@
 
 /*Fonts*/
 
-@import url(https://fonts.googleapis.com/css?family=Rye);
-
-
-/*COLOR*/
-/*
-Dark: 1b150f
-Light: ;
-Gray: 534f50;
-*/
+@import url(https://fonts.googleapis.com/css?family=Cinzel:700,400);
+@import url(https://fonts.googleapis.com/css?family=Marck+Script);
 
 /*STRUCTURE ------------------------------------*/
 body {
@@ -24,72 +17,222 @@ body {
 	background: radial-gradient(ellipse at center,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,1) 100%), url('images/bkgrnd/bricks.jpg');
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12000000', endColorstr='#000000',GradientType=1 );
 
-}
-
-.gradient{
-
-	
-	
+	box-sizing: border-box;
 
 }
-.gradient:after{
-	padding:100%;
-}
+
+
 
 header{
 		display:block;
 		background-color: #060503;
 		box-shadow: 5px 5px 12px 7px #000;
 		margin-bottom: 3em;
+
+	background: rgb(6,5,3);
+	background: -moz-linear-gradient(45deg,  rgba(6,5,3,1) 13%, rgba(56,56,56,1) 100%);
+	background: -webkit-linear-gradient(45deg,  rgba(6,5,3,1) 13%,rgba(56,56,56,1) 100%);
+	background: linear-gradient(45deg,  rgba(6,5,3,1) 13%,rgba(56,56,56,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#060503', endColorstr='#383838',GradientType=1 );
+
 }
 .inner{
-		border-top-left-radius: 15px;
-		border-top-right-radius: 15px;
+		border-radius: 15px;
+		border: 4px solid #888;
 		background-color: #bab1b3;
 		width:80%;
-		/*z-index: 50;*/
 		border:0;
 		margin:0;
 		padding: 15px;
+		/*background-image: url('images/bkgrnd/back.jpg');*/
+		background-size:100%;
+		background-repeat: no-repeat;
+
+		background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.71) 100%), url('images/bkgrnd/back.jpg');
+		background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/back.jpg');
+		background: radial-gradient(ellipse at center,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/back.jpg');
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12000000', endColorstr='#b5000000',GradientType=1 ), uurl('images/bkgrnd/back.jpg');
+
+
+
+		box-shadow: 4px 4px 8px 4px #000, -4px -4px 8px 4px #000;
+		min-height: 550px;
 }
 
 footer{
 	background-color: #000;
 }
 
+#pCards, #eCards {
+	perspective: 1000px;
+}
+
 .card{
 	border-radius: 10px;
 	overflow:hidden;
-	width: 200px;
+	width: 190px;
 	height: 275px;
-
 
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	background: radial-gradient(ellipse at center,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12000000', endColorstr='#b5000000',GradientType=1 ), url('images/bkgrnd/stone.jpg');
 
-}
+	transition: .3s;
+  	transform: rotateY(10deg);
+  	box-shadow: -6px 6px 4px -1px #000;
 
-.card:after {
-	
+  	z-index:20;
+  	
 }
+.card:hover {
+	box-shadow: -3px -3px 4px -1px #fff, 3px 3px 4px 1px #fff;
 
+}
 .card img{
-	width:100%;
+	width:95%;
 	height:175px;
+	border: 4px solid transparent;
+	margin: 0 auto;
+}
+.card h4{
+	padding:0;
+	margin:0;
+	font-family: 'Marck Script', cursive;
+	font-size: 0.75em;
+	font-weight: bold;
+	text-align: center;
+	color: #000;
+
+}
+.cardDrop {
+	width: 100%;
+	background-repeat: no-repeat;
+	padding:0;
+	margin:0;
+
+}
+.stats {
+	display:none;
+	position: fixed;
+	top: 400px;
+	left: 400px;
+	width: 400px;
+	height:300px;
+	
+	z-index:50;
+}
+.cardDrop:hover + .stats {
+	display: block;
+}
+.cardDrop p {
+	font-family: 'Cinzel', serif;
+	font-size: 0.75em;
+	padding:5px; margin:0;
+	color:#000;
+	text-align: center;
 }
 
-.cardStat{/*BUTTON FOR STATS*/
+.buttonHolder {
+	margin:0 auto;
+	padding-left:14px;
+}
+.badge {
+	border-radius:10%;
+	width: 75px;
+	height: 75px;
+	border-radius: 10px;
+	font-size: 0.5em;
+	color: #fff;
+	padding:5px;
+}
+.healthB {	background-color: red; }
+.manaB { background-color: orange; }
+.strengthB { background-color: brown; }
+.defB { background-color: gray; }
+.fireB { background-color: red; }
+.waterB { background-color: blue; }
+.earthB { background-color: brown; }
+.effectB { background-color: green; }
+.airB {	background-color: purple; }
+.solarB { background-color: black; }
+
+
+.cardAction{
 	width: 50px;
 	height: 50px;
 
 }
 
+/*POSITIONS*/
+.slotMainLeft {
+	position: relative;
+	top:50px;	left: 80px;
+	transform: scale(1.1);
+	width: 190px; 	height:275px;
+}
+.slotHelpLeft {
+	position: relative;
+	top:-165px;	 left:280px;
+	width: 180px;	height:265px;
+	transform: scale(0.55);
+}
+.slotHelpLeft:hover {
+	transform: scale(1.1);
+	top: -200px;
+}
+
+.pSmlA {
+	position: absolute;
+	top:470px;	left: 155px;
+	width:180px;  height:240px;
+	transform: scale(0.4);
+}
+.pSmlA:hover {	transform: scale(0.7); top:400px;}
+
+
+.pSmlB {
+	position: absolute;
+	top:470px;	left: 255px;
+	width:180px;  height:240px;
+	transform: scale(0.4);
+}
+.pSmlB:hover {	transform: scale(0.7); top:400px;}
+
+.pSmlC {
+	position: absolute;
+	top:470px;	left: 345px;
+	width:180px;  height:240px;
+	transform: scale(0.4);
+}
+.pSmlC:hover {	transform: scale(0.7); top:400px;}
+
+.pSmlD {
+	position: absolute;
+	top:470px;	left: 435px;
+	width:180px;  height:240px;
+	transform: scale(0.4);
+}
+.pSmlD:hover {	transform: scale(0.7); top:400px;}
+
+.pSmlE {
+	position: absolute;
+	top:470px;	left: 525px;
+	width:180px;  height:240px;
+	transform: scale(0.4);
+}
+.pSmlE:hover {	transform: scale(0.7); top:400px;}
+
+.pSmlA,.pSmlB,.pSmlC,.pSmlD,.pSmlE,.slotHelpLeft, .slotMainLeft { 
+background-color: rgba(0,0,0,0.2); }
+
+
+
+
 
 /* -------- COLUMN LAYOUTS -------*/
 .wrapper {
-  width: 80%;
+  width: 1100px;
   margin: auto;
 }
 
@@ -142,7 +285,8 @@ nav ul li {
 /*TYPE -------------------------------------------*/
 
 h1 {
-	font-family: 'Rye', cursive;
+	font-family: 'Cinzel', serif;
+	font-weight:700;
 	font-size: 1em;
 	color: #fff;
 	width: 150px;
@@ -150,14 +294,18 @@ h1 {
 	margin:0;
 }
 h2{
+	font-family: 'Marck Script', cursive;
 
 }
 h3{
+	font-family: 'Marck Script', cursive;
 
 }
 p {
-	font-family: 'Rye', cursive;
-	font-size: 0.75em;
+	font-family: 'Cinzel', serif;
+	font-size: 1em;
+	padding:5px; margin:0;
+	color:yellow;
 }
 
 

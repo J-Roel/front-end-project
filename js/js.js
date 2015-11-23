@@ -1,6 +1,8 @@
 window.onload = function(){ //program contianer function
 
 
+
+
 // jQeffects ={
 
     /* function : arguments */
@@ -52,6 +54,9 @@ window.onload = function(){ //program contianer function
       - Solar
       - Nature
 */
+
+//SETUP Enemies
+
 
   //DEFINE VARIABLES
   var turn = true;
