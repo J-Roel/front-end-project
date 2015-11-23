@@ -3,9 +3,10 @@
 */
 
 /*Fonts*/
-
 @import url(https://fonts.googleapis.com/css?family=Cinzel:700,400);
 @import url(https://fonts.googleapis.com/css?family=Marck+Script);
+
+
 
 /*STRUCTURE ------------------------------------*/
 body {
@@ -21,8 +22,6 @@ body {
 
 }
 
-
-
 header{
 		display:block;
 		background-color: #060503;
@@ -34,9 +33,9 @@ header{
 	background: -webkit-linear-gradient(45deg,  rgba(6,5,3,1) 13%,rgba(56,56,56,1) 100%);
 	background: linear-gradient(45deg,  rgba(6,5,3,1) 13%,rgba(56,56,56,1) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#060503', endColorstr='#383838',GradientType=1 );
-
 }
-.inner{
+
+.inner{/*This is the graphic area inside the wrapper*/
 		border-radius: 15px;
 		border: 4px solid #888;
 		background-color: #bab1b3;
@@ -44,6 +43,7 @@ header{
 		border:0;
 		margin:0;
 		padding: 15px;
+		max-height: 575px;
 		/*background-image: url('images/bkgrnd/back.jpg');*/
 		background-size:100%;
 		background-repeat: no-repeat;
@@ -63,81 +63,59 @@ footer{
 	background-color: #000;
 }
 
-#pCards, #eCards {
+
+
+/*---CARD ASSETS AND CARD POSTIONINGS -------------------------------------*/
+#pCards, #eCards { /*For both the player card and enemy card we apply perspective*/
 	perspective: 1000px;
 }
 
-.card{
+.card{ /*default card class. This takes care of all the cards and their transitions*/
 	border-radius: 10px;
 	overflow:hidden;
 	width: 190px;
-	height: 275px;
+	height: 285px;
 
 	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%, rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	background: radial-gradient(ellipse at center,  rgba(0,0,0,0.07) 0%,rgba(0,0,0,0.71) 100%), url('images/bkgrnd/stone.jpg');
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#12000000', endColorstr='#b5000000',GradientType=1 ), url('images/bkgrnd/stone.jpg');
 
-	transition: .3s;
-  	transform: rotateY(10deg);
+	transition: .4s;
+  	transform: rotateY(0deg);
   	box-shadow: -6px 6px 4px -1px #000;
 
   	z-index:20;
-  	
 }
-.card:hover {
-	box-shadow: -3px -3px 4px -1px #fff, 3px 3px 4px 1px #fff;
-
+.card:hover { /*This is our hightlight for the cards*/
+	transform: rotateY(20deg);
+	box-shadow: -2px -2px 3px -1px #fff, 2px 2px 3px 1px #fff;
 }
-.card img{
-	width:95%;
-	height:175px;
-	border: 4px solid transparent;
-	margin: 0 auto;
+.cardImg{ /*For the image across the card*/
+	display: block;
+	width:100%;
+	min-height:175px;
+	padding-bottom:5px;
+	
+	/*the url of this image will be set in javascript*/
+	background-image: url('images/characters/order-of-the-wolf.jpg');
+	background-repeat: no-repeat; /*add this or the image shows up 2X*/
 }
-.card h4{
+.card h4{ /*This is for our card title*/
 	padding:0;
 	margin:0;
 	font-family: 'Marck Script', cursive;
-	font-size: 0.75em;
+	font-size: 1em;
 	font-weight: bold;
 	text-align: center;
 	color: #000;
-
-}
-.cardDrop {
-	width: 100%;
-	background-repeat: no-repeat;
-	padding:0;
-	margin:0;
-
-}
-.stats {
-	display:none;
-	position: fixed;
-	top: 400px;
-	left: 400px;
-	width: 400px;
-	height:300px;
-	
-	z-index:50;
-}
-.cardDrop:hover + .stats {
-	display: block;
-}
-.cardDrop p {
-	font-family: 'Cinzel', serif;
-	font-size: 0.75em;
-	padding:5px; margin:0;
-	color:#000;
-	text-align: center;
 }
 
 .buttonHolder {
 	margin:0 auto;
 	padding-left:14px;
 }
-.badge {
+.badge { /*The parent for all the little badges and stat numbers*/
 	border-radius:10%;
 	width: 75px;
 	height: 75px;
@@ -146,7 +124,7 @@ footer{
 	color: #fff;
 	padding:5px;
 }
-.healthB {	background-color: red; }
+.healthB {	background-color: red; } /*These are the colors for the different badges*/
 .manaB { background-color: orange; }
 .strengthB { background-color: brown; }
 .defB { background-color: gray; }
@@ -158,70 +136,37 @@ footer{
 .solarB { background-color: black; }
 
 
-.cardAction{
+.cardAction{ /*These are for the clickable buttons on the card*/
 	width: 50px;
 	height: 50px;
 
+	background: rgb(61,49,39);
+	background: -moz-linear-gradient(45deg,  rgba(61,49,39,1) 1%, rgba(0,0,0,1) 100%);
+	background: -webkit-linear-gradient(45deg,  rgba(61,49,39,1) 1%,rgba(0,0,0,1) 100%);
+	background: linear-gradient(45deg,  rgba(61,49,39,1) 1%,rgba(0,0,0,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d3127', endColorstr='#000000',GradientType=1 );
 }
 
-/*POSITIONS*/
-.slotMainLeft {
-	position: relative;
-	top:50px;	left: 80px;
-	transform: scale(1.1);
-	width: 190px; 	height:275px;
-}
-.slotHelpLeft {
-	position: relative;
-	top:-165px;	 left:280px;
-	width: 180px;	height:265px;
-	transform: scale(0.55);
-}
-.slotHelpLeft:hover {
-	transform: scale(1.1);
-	top: -200px;
-}
+/*PLAYER SIDE POSITIONS*/
+.slotMainLeft {	position: relative;	top:0px; left: 80px; transform: scale(1.1); width: 190px; 	height:275px; transition: .4s;}
 
-.pSmlA {
-	position: absolute;
-	top:470px;	left: 155px;
-	width:180px;  height:240px;
-	transform: scale(0.4);
-}
-.pSmlA:hover {	transform: scale(0.7); top:400px;}
+.slotHelpLeft {	position: relative; top:-250px;	 left:280px; width: 180px;	height:265px; transform: scale(0.55); transition: .4s;}
+.slotHelpLeft:hover { transform: scale(1.1); top: -250px; }
 
+.pSmlA { position: absolute; top:550px;	left: 155px; width:180px;  height:240px; transform: scale(0.4); transition: .4s;}
+.pSmlA:hover {	transform: scale(0.7); top:525px;}
 
-.pSmlB {
-	position: absolute;
-	top:470px;	left: 255px;
-	width:180px;  height:240px;
-	transform: scale(0.4);
-}
-.pSmlB:hover {	transform: scale(0.7); top:400px;}
+.pSmlB { position: absolute; top:550px;	left: 255px; width:180px;  height:240px; transform: scale(0.4); transition: .4s;}
+.pSmlB:hover {	transform: scale(0.7); top:525px;}
 
-.pSmlC {
-	position: absolute;
-	top:470px;	left: 345px;
-	width:180px;  height:240px;
-	transform: scale(0.4);
-}
-.pSmlC:hover {	transform: scale(0.7); top:400px;}
+.pSmlC { position: absolute; top:550px;	left: 345px; width:180px;  height:240px; transform: scale(0.4); transition: .4s;}
+.pSmlC:hover {	transform: scale(0.7); top:525px;}
 
-.pSmlD {
-	position: absolute;
-	top:470px;	left: 435px;
-	width:180px;  height:240px;
-	transform: scale(0.4);
-}
-.pSmlD:hover {	transform: scale(0.7); top:400px;}
+.pSmlD { position: absolute; top:550px;	left: 435px; width:180px;  height:240px; transform: scale(0.4); transition: .4s;}
+.pSmlD:hover {	transform: scale(0.7); top:525px;}
 
-.pSmlE {
-	position: absolute;
-	top:470px;	left: 525px;
-	width:180px;  height:240px;
-	transform: scale(0.4);
-}
-.pSmlE:hover {	transform: scale(0.7); top:400px;}
+.pSmlE { position: absolute; top:550px;	left: 525px; width:180px;  height:240px; transform: scale(0.4); transition: .4s;}
+.pSmlE:hover {	transform: scale(0.7); top:525px;}
 
 .pSmlA,.pSmlB,.pSmlC,.pSmlD,.pSmlE,.slotHelpLeft, .slotMainLeft { 
 background-color: rgba(0,0,0,0.2); }
@@ -230,7 +175,7 @@ background-color: rgba(0,0,0,0.2); }
 
 
 
-/* -------- COLUMN LAYOUTS -------*/
+/* -------- COLUMN LAYOUTS ------------------------------*/
 .wrapper {
   width: 1100px;
   margin: auto;
@@ -256,7 +201,6 @@ background-color: rgba(0,0,0,0.2); }
 }
  
 /* -- Column Row (aka Clearfix) -- */
- 
 .row:after {
   content: "";
   display: table;
@@ -266,6 +210,8 @@ background-color: rgba(0,0,0,0.2); }
 	content: "";
   clear: both;
 }
+
+
 /*NAVIGATION-------------------------------------*/
 nav {
 }
@@ -274,8 +220,8 @@ nav ul {
 }
 nav ul li {
 	display: inline-block;
-	font-family: 'Rye', cursive;
-	font-size: 0.75em;
+	font-family: 'Marck Script', cursive;
+	font-size: 2em;
 	color:#000;
 	padding: 10px;
 }
@@ -283,7 +229,6 @@ nav ul li {
 
 
 /*TYPE -------------------------------------------*/
-
 h1 {
 	font-family: 'Cinzel', serif;
 	font-weight:700;
@@ -308,6 +253,16 @@ p {
 	color:yellow;
 }
 
+.totalScore { /*This is the container for the score at the top of the board*/
+	padding:5px; margin:0;
+	text-align: center;
+}
+.totalScore span, h3 { /*This is for the text in our function*/
+	font-family: 'Cinzel', serif;
+	font-size: 1.5em;
+	display: inline-block;
+}
+
 
 
 
@@ -324,7 +279,7 @@ button {
 
 
 
-/*DECO-------------------------------------------*/
+/*DECO------------------------------------------Decorations for our effects and board-*/
 
 .display-image-behind {
 

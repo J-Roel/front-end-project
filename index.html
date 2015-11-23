@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
 
  	<head>
@@ -32,6 +31,7 @@
 			<header>
 			<div class="wrapper row">
 				<div class="two_third">
+				<button id="tester" disabled="true"></button><!--disable attack button by default-->
 					<div class="display-image-behind">
 							<h1>Karta</h1>
 					</div>
@@ -48,16 +48,25 @@
 			</header>
 
 
-	
 		<div class="wrapper inner">
+
+			<!-- THE AREA TO DISPLAY THE SCORE -->
+			<div class="row totalScore">
+					<h3>Player:<span id="pTotalHP"></span> X Enemy:<span id="eTotalHP"></span></h3>
+			</div>
+		
+
+
 			<div class="row">
+
+				<!-- PLAYER SIDE -->
 				<div class="one_half">
 				
 					<div id="mainpCard" class="slotMainLeft" ondrop="drop(event)" ondragover="allowDrop(event)">
 
 						<div draggable="true" ondragstart="drag(event)" id="card1" class="card  mainLeft">
 							<h4>Order of the Wolf</h4>
-							<img src="images/characters/werewulf-knight.jpg" alt="#">
+							<div class="cardImg"></div>
 							<div class="buttonHolder">
 								<button class="cardAction"></button>
 								<button class="cardAction"></button>
@@ -68,45 +77,50 @@
 								<span class="badge  strengthB">9</span>
 								<span class="badge  defB">7</span>
 							</div>
-							
 						</div>
-					
 					</div>
 
-
 					<div id="pHelp" class="slotHelpLeft" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-					
 					<div id="slotPA" class="pSmlA" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-					
 					<div id="slotPB" class="pSmlB" ondrop="drop(event)" ondragover="allowDrop(event)"></div>	
-					
 					<div id="slotPC" class="pSmlC" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
 					<div id="slotPD" class="pSmlD" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-
 					<div id="slotPE" class="pSmlE" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-				
+				</div><!-- END ONE HALF -->
 
+
+				<!-- ENEMY SIDE -->
+				<div class="one_half">
+				
+					<div id="mainECard" class="slotMainRight">
+
+						<div id="card1" class="card  mainRight">
+							<h4>Order of the Wolf</h4>
+							<div class="buttonHolder">
+								<button class="cardAction"></button>
+								<button class="cardAction"></button>
+								<button class="cardAction"></button>
+							
+								<span class="badge  healthB">10</span>
+								<span class="badge  manaB">2</span>
+								<span class="badge  strengthB">9</span>
+								<span class="badge  defB">7</span>
+							</div>
+						</div>
+					</div>
+
+					<div id="pHelp" class="slotHelpRight"></div>
+					<div id="slotEA" class="eSmlA"></div>
+					<div id="slotEB" class="eSmlB"></div>	
+					<div id="slotEC" class="eSmlC"></div>
+					<div id="slotED" class="eSmlD"></div>
+					<div id="slotEE" class="eSmlE"></div>
+				
 				</div><!-- END ONE HALF -->
 					
-
-
-			<div class="row">
-				<div class="one_half">
-					<h3>Player:</h3><span id="playerHP"></span>
-				</div>
-
-				<div class="one_half">
-					<h3>Enemy:</h3><span id="enemyHP"></span>
-				</div>
-			</div>
-		
-			<div class="row">
-					<span id="#turn"></span>
-			</div>
-		</div>
+			
+		</div> <!-- CLOSE ROW -->
 	</div><!-- CLOSE WRAPPER INNER -->
-
 
 
 

@@ -10,7 +10,6 @@ window.onload = function(){ //program contianer function
 
 // }
 
-
 // $( '.button' ).click(function() {
 //   console.log("in function");
 //   var selectedEffect = $('#effectTypes').val();
@@ -24,13 +23,6 @@ window.onload = function(){ //program contianer function
 //         $( ".effect" ).removeAttr( "style" ).hide().fadeIn();
 //       }, 1000 );
 //     };
-
-
-// function newfunc( {
-//   sub = a*b
-
-//   return
-// }
 
 
 //BATTLE SYSTEM
@@ -59,56 +51,91 @@ window.onload = function(){ //program contianer function
 
 
   //DEFINE VARIABLES
-  var turn = true;
-  var player = {
-      'hp' : 21
-  };
-  var enemy ={
-      'hp' : 21
-  };
   var turn;
+  var player = []; //array to hold player's cards hp
+  var enemy = []; //array to hold enemies cards hp
+  var tHP = 0; tHE = 0;
 
 
-  //Setup game based on random seed
+  //Setup game based on random seed--------------------------SETUP
   function setup() {
+      console.log("--------Start--------");
+        update();  //Initially update our board
 
-        update();
 
-        var rnd = randomNumGen(1,1000);//generate starter
+
+        //SETUP FOR HEALTH //GENERATE THE CARDS HERE
+        var aPHealth = [];
+        var aEHealth =[];
+        var tH = 0;
+        for(var i = 0; i <= 5; i++)
+        {
+          //Player
+          tH = randomNumGen(10,1);
+          aPHealth.push(tH);
+          tHP += tH;
+          //Enemy
+          tH = randomNumGen(10,1);
+          aEHealth.push(tH);
+          tHE += tH;
+        }
+
+        $('pTotalHP').text(tHP);
+        $('eTotalHP').text(tHE);
+        console.log("Player HP: ", aPHealth, "Total: ", tHP);
+        console.log("--------");
+        console.log("Enemy HP: ", aEHealth, "Total: ", tHE);
+        console.log("--------");
+
+
+
+
+
+        //GENERATE RANDOM START
+        var rnd = randomNumGen(1,1000);
         if(rnd%2===0)
         {
-          turn = false;
-          attack();
-        } //else we wait for player to click
+          turn = false; //false is for the computers turn
+          $('#tester').prop("disabled",true);//disable player's ability to attack
+          attack(turn); //computer attacks or...
+
+        } else { //...we wait for player to click 
+          $('#tester').prop("disabled",false);
+          turn = true;
+        }
+        console.log("Turn: ", turn);
+
         
    };
 
 
-   //Game Go
-   function initGame(){
-      //Fill out stuff
-      update();
-      
-
-      //User clicks or computer goes
-      if(turn){ //true is player, false is computer
-          console.log('Player attacks');
-          //player.hp -= damage;
-
-      }else{
-          console.log('Enemy attacks');
-          attack();
-      }
-   };
-
-
    //Actual attack
-   function attack(){
-      var damage = randomNumGen(3,1);
+   function attack(turn){
+
+      var damage = randomNumGen(10,1); //base attack damage
+
+      //get badge info
+      // var strength = randomNumGen(10,1);
+      // var defense = randomNumGen(10,1);
+      // var weakness = randomNumGen(10,1);
+      if(turn){
+          console.log('Player clicked attack', damage);
+          tHE -= damage;
+          console.log("Enemy total: ", tHE);
+          $('#tester').prop("disabled",true);//disable player's ability to attack
+          
+
+      } else {
+        console.log('Computer is attacking', damage);
+        tHP -= damage;
+        console.log("Player total: ", tHP);
+
+
+      }
+
+
 
       //Add weaknesses and strengths here
-
-
       return damage;
    };
 
@@ -129,23 +156,19 @@ window.onload = function(){ //program contianer function
         $('#turn').text('Player');
       }else{
         //Turn is false
+        $('#tester').prop("disabled",true);
         $('#turn').text('Computer');
       }
 
+      return true;
    };
 
 
 //------------CLICK FUNCTIONS---------------
-$('#attack').on('click', function(){
-    console.log('Player clicked attack');
-    var player;
-    var effects;
-    if(turn){
-        attack(player);
-
+$('#tester').on('click', function(){
+    if(turn){ //double check turn
+        attack(turn);
     }
-
-
 });
 
 
@@ -156,8 +179,6 @@ $('#attack').on('click', function(){
   function randomNumGen(min,max){
       return Math.floor(Math.random() * (max - min) + min);
   };
-
-
 
 
 
