@@ -1,0 +1,144 @@
+{"cards":[
+	{	
+		"name":"Order of the Wolf",
+		"url":"images/characters/order-of-the-wolf.jpg",
+		"hp":10,
+		"mana":0,
+		"str":9,
+		"def":7,
+		"fire":3,
+		"water":0,
+		"air":0,
+		"earth":1,
+		"effect":0,
+		"shadow":4,
+		"solar":1,
+		"magic": [ "fire" ]
+	},
+	{
+		"name":"Manticore",
+		"url":"images/characters/manticore.jpg",
+		"hp":6,
+		"mana":8,
+		"str":10,
+		"def":5,
+		"fire":3,
+		"water":3,
+		"air":3,
+		"earth":1,
+		"effect":0,
+		"shadow":4,
+		"solar":1,
+		"magic":["fire","water"]
+	},
+	{
+		"name":"Fire Druid",
+		"url":"images/characters/fire-druid.jpg",
+		"hp":6,
+		"mana":8,
+		"str":5,
+		"def":2,
+		"fire":3,
+		"water":-2,
+		"air":0,
+		"earth":1,
+		"effect":0,
+		"shadow":0,
+		"solar":3,
+		"magic":["fire"]
+	},
+	{
+		"name":"Green Fairy",
+		"url":"images/characters/green-fairy.jpg",
+		"hp":2,
+		"mana":12,
+		"str":1,
+		"def":1,
+		"fire":-5,
+		"water":1,
+		"air":5,
+		"earth":0,
+		"effect":5,
+		"shadow":0,
+		"solar":0,
+		"magic":["heal"]
+	},
+	{
+		"name":"Death",
+		"url":"images/characters/death.jpg",
+		"hp":20,
+		"mana":12,
+		"str":10,
+		"def":10,
+		"fire":5,
+		"water":0,
+		"air":5,
+		"earth":5,
+		"effect":5,
+		"shadow":10,
+		"solar":10,
+		"magic":["death"]
+	},
+	{
+		"name":"Death",
+		"url":"images/characters/death.jpg",
+		"hp":20,
+		"mana":12,
+		"str":10,
+		"def":10,
+		"fire":5,
+		"water":0,
+		"air":5,
+		"earth":5,
+		"effect":5,
+		"shadow":10,
+		"solar":10,
+		"magic":["death"]
+	},
+	{
+		"name":"Shadow",
+		"url":"images/characters/shadow.jpg",
+		"hp":5,
+		"mana":9,
+		"str":5,
+		"def":5,
+		"fire":10,
+		"water":10,
+		"air":10,
+		"earth":10,
+		"effect":10,
+		"shadow":10,
+		"solar":10,
+		"magic":[""]
+	}
+
+
+
+
+	],
+
+	"spells":[
+		{
+			"sname":"fire",
+			"url":"",
+			"basedamage":10
+		},
+		{
+			"sname":"water",
+			"url":"",
+			"basedamage":10
+		},
+		{
+			"sname":"heal",
+			"url":"",
+			"basedamage":-10
+		},
+		{
+			"sname":"death",
+			"url":"",
+			"basedamage":30,
+		}
+
+	]
+}
+          

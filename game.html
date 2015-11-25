@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+
+<html>
+
+ 	<head>
+ 		<title>Karta</title>
+ 		<link href="normalize.css" rel="stylesheet" type="text/css" />
+ 		<link href="styles.css" rel="stylesheet" type="text/css" />
+
+ 		<script>
+ 			function allowDrop(ev) {
+			    ev.preventDefault();
+			}
+
+			function drag(ev) {
+			    ev.dataTransfer.setData("text", ev.target.id);
+			}
+
+			function drop(ev) {
+			    ev.preventDefault();
+			    var data = ev.dataTransfer.getData("text");
+			    ev.target.appendChild(document.getElementById(data));
+			}
+ 		</script>
+
+ 	</head>
+
+<body>
+
+	<div class="gradient"></div>
+			<header>
+			<div class="wrapper row">
+				<div class="two_third">
+					<div class="display-image-behind">
+							<h1>Karta</h1>
+					</div>
+				</div>
+				<div class="one_third">
+					<nav>
+						<ul>
+							<li>Quit</li>
+							<li>Options</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+			</header>
+
+
+		<div class="wrapper inner">
+
+			<!-- THE AREA TO DISPLAY THE SCORE -->
+			<button id="pAttack" disabled="true">Attack</button><!--disable attack button by default-->
+
+
+
+			<!-- ************OUR MAIN AREA OF GAME PLAY******** -->
+			<div class="row">
+
+				
+				<div class="one_half"><!-- PLAYER SIDE -->
+				<h3><span id="pTotalHP"></span></h3>
+					<div id="gameareaP">
+						
+						<div class="p7" ondrop="drop(event)" ondragover="allowDrop(event)">
+							
+							<div class="card" draggable="true" ondragstart="drag(event)">
+								<div class="pEffect1"></div>
+								<h4>Order of the Wolf</h4>
+								<div class="cardImg"></div>
+								<div class="buttonHolder">
+									<button class="cardAction"></button>
+									<button class="cardAction"></button>
+									<button class="cardAction"></button>
+								</div>
+									<span class="badge  healthB">10</span>
+									<span class="badge  manaB">2</span>
+									<span class="badge  strengthB">9</span>
+									<span class="badge  defB">7</span>
+								
+							</div>
+						</div>
+
+						<div class="p6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						
+
+						<div class="p1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						
+						<div class="p2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>	
+						
+						<div class="p3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						
+						<div class="p4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+						
+						<div class="p5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+					
+
+					</div><!--END GAME AREA OF PLAYER -->
+				</div><!-- END ONE HALF -->
+
+
+				<!-- ENEMY SIDE -->
+				<div class="one_half">
+				<h3><span id="eTotalHP"></span></h3>
+					<div id="gameareaE">
+
+						<div class="p7" style="transform: rotateY(-20deg);"></div>
+
+						<div class="e6"></div>
+						<div class="e1"></div>
+						<div class="e2"></div>	
+						<div class="e3"></div>
+						<div class="e3"></div>
+						<div class="e4"></div>
+						<div class="e5"></div>
+					</div><!-- END GAME AREA OF ENEMY -->
+				</div><!-- END ONE HALF -->
+					
+			
+		</div> <!-- CLOSE ROW -->
+	</div><!-- CLOSE WRAPPER INNER -->
+
+
+
+
+
+
+
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<!-- <script src="js/jquery.lettering-0.6.1.min.js"></script> -->
+
+		<script src="js/game.js" type="text/javascript"></script>
+	</body>
+</html>
+
